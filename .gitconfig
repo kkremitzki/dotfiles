@@ -1,3 +1,5 @@
 [user]
 	email = kkremitzki@debian.org
 	name = Kurt Kremitzki
+[pull]
+	ff = only
