@@ -119,4 +119,14 @@ alias sc="sudo systemctl"
 # Show git branch name
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
-export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[31m\]$(__git_ps1 ":[%s]")\[\033[00m\]\$ '
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[31m\]$(__git_ps1 ":[%s]")\[\033[00m\]\$ '
+
+# Direnv support
+eval "$(direnv hook bash)"
+show_virtual_env() {
+	if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+		echo "($(basename $VIRTUAL_ENV))"
+	fi
+}
+export -f show_virtual_env
+PS1='$(show_virtual_env)'$PS1
