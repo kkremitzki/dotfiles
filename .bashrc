@@ -131,5 +131,5 @@ show_virtual_env() {
 export -f show_virtual_env
 PS1='$(show_virtual_env)'$PS1
 
-# Start tmux if we're not already in a session
-[ -z $TMUX ] && tmux
+# Replace shell with tmux if we're not already in a session
+[ -z $TMUX ] && exec tmux
