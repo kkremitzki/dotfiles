@@ -122,7 +122,7 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[31m\]$(__git_ps1 ":[%s]")\[\033[00m\]\$ '
 
 # Direnv support
-eval "$(direnv hook bash)"
+command -v direnv 2&>/dev/null && eval "$(direnv hook bash)"
 show_virtual_env() {
 	if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
 		echo "($(basename $VIRTUAL_ENV))"
