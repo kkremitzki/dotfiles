@@ -1,3 +1,7 @@
 .venv
 .envrc
 .netrwhist
+tags
+tags.lock
+tags.temp
+.pc
